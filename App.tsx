@@ -11,7 +11,8 @@ import {
   Landmark,
   Heart,
   Navigation,
-  ExternalLink
+  ExternalLink,
+  Info
 } from 'lucide-react';
 import { ITINERARY } from './data';
 import { Activity } from './types';
@@ -24,7 +25,8 @@ const IconMap: Record<string, React.ReactElement> = {
   culture: <Landmark className="w-5 h-5 text-purple-500" />,
   walk: <Footprints className="w-5 h-5 text-emerald-500" />,
   leisure: <Camera className="w-5 h-5 text-orange-500" />,
-  hotel: <Bed className="w-5 h-5 text-indigo-500" />
+  hotel: <Bed className="w-5 h-5 text-indigo-500" />,
+  info: <Info className="w-5 h-5 text-sky-500" />
 };
 
 interface ActivityCardProps {
@@ -36,9 +38,12 @@ const ActivityCard: React.FC<ActivityCardProps> = ({ activity, isLast }) => {
   const openMap = (e: React.MouseEvent, query: string) => {
     e.preventDefault();
     e.stopPropagation();
+    if (!query) return;
     const encodedQuery = encodeURIComponent(query);
     window.open(`https://www.google.com/maps/search/?api=1&query=${encodedQuery}`, '_blank');
   };
+
+  const hasItems = activity.items && activity.items.length > 0;
 
   return (
     <div className="flex gap-4 relative">
@@ -57,19 +62,43 @@ const ActivityCard: React.FC<ActivityCardProps> = ({ activity, isLast }) => {
 
       {/* Content Card */}
       <div 
-        onClick={(e) => openMap(e, activity.locationQuery)}
-        className={`flex-1 mb-6 p-4 rounded-xl border transition-all duration-200 active:scale-95 cursor-pointer shadow-sm hover:shadow-md bg-white ${
+        onClick={hasItems ? undefined : (e) => openMap(e, activity.locationQuery)}
+        className={`flex-1 mb-6 p-4 rounded-xl border transition-all duration-200 shadow-sm bg-white ${
+          !hasItems ? 'active:scale-95 cursor-pointer hover:shadow-md' : ''
+        } ${
           activity.important ? 'border-rose-200 ring-1 ring-rose-100' : 'border-gray-100'
         }`}
       >
-        <div className="flex justify-between items-start mb-1">
+        <div className="flex justify-between items-start mb-2">
           <h3 className="font-bold text-gray-800 text-lg leading-tight">{activity.title}</h3>
-          <Navigation className="w-4 h-4 text-gray-400 mt-1" />
+          {!hasItems && activity.locationQuery && <Navigation className="w-4 h-4 text-gray-400 mt-1" />}
         </div>
         
-        <p className="text-gray-600 text-sm mb-2">{activity.description}</p>
+        {activity.description && (
+          <p className="text-gray-600 text-sm mb-4 whitespace-pre-line leading-relaxed">{activity.description}</p>
+        )}
+
+        {/* Mini Cards Grid (For Info Local) */}
+        {hasItems && (
+           <div className="grid grid-cols-1 gap-3 mt-3">
+             {activity.items!.map((item, idx) => (
+               <div 
+                 key={idx}
+                 onClick={(e) => openMap(e, item.query)}
+                 className="p-3 rounded-lg bg-gray-50 border border-gray-100 active:bg-rose-50 active:border-rose-200 transition-all cursor-pointer flex justify-between items-center group"
+               >
+                 <div className="flex-1 pr-2">
+                   <h4 className="text-sm font-bold text-gray-800">{item.title}</h4>
+                   <p className="text-xs text-gray-500 mt-0.5 leading-snug">{item.description}</p>
+                 </div>
+                 <ExternalLink className="w-4 h-4 text-gray-300 group-hover:text-rose-400 transition-colors flex-shrink-0" />
+               </div>
+             ))}
+           </div>
+        )}
         
-        {activity.recommendations && activity.recommendations.length > 0 && (
+        {/* Standard Recommendations (For Regular Days) */}
+        {!hasItems && activity.recommendations && activity.recommendations.length > 0 && (
           <div className="mt-3 bg-rose-50 p-2 rounded-lg border border-rose-100">
             <p className="text-xs font-semibold text-rose-700 mb-2 flex items-center gap-1">
               <Heart className="w-3 h-3 fill-rose-500" /> Opciones Recomendadas:
@@ -109,24 +138,39 @@ const HomePage = () => {
       <div className="grid gap-6">
         {ITINERARY.map((day) => (
           <Link key={day.id} to={`/day/${day.id}`} className="block group">
-            <div className="relative h-48 rounded-2xl overflow-hidden shadow-lg transition-transform duration-300 group-hover:scale-[1.02] active:scale-95 bg-gray-200">
-              {/* Overlay Gradient */}
-              <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent z-10" />
-              <img 
-                src={day.coverImage} 
-                alt={day.title} 
-                className="absolute inset-0 w-full h-full object-cover"
-                loading="lazy"
-              />
+            <div 
+              className={`relative rounded-2xl overflow-hidden shadow-lg transition-transform duration-300 group-hover:scale-[1.02] active:scale-95 bg-gray-200 ${
+                day.id === 'info-local' ? 'h-24' : 'h-48'
+              }`}
+            >
+              
+              {/* Conditional Rendering: Image vs Solid Color */}
+              {day.coverImage ? (
+                <>
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent z-10" />
+                  <img 
+                    src={day.coverImage} 
+                    alt={day.title} 
+                    className="absolute inset-0 w-full h-full object-cover"
+                    loading="lazy"
+                  />
+                </>
+              ) : (
+                <div className="absolute inset-0 bg-rose-500 z-0 flex items-center justify-center">
+                  <Heart className="w-12 h-12 text-rose-400 opacity-50" />
+                </div>
+              )}
               
               <div className="absolute bottom-0 left-0 p-5 z-20 w-full">
                 <div className="flex justify-between items-end">
                   <div>
-                    <span className="inline-block px-2 py-0.5 bg-rose-500 text-white text-[10px] font-bold rounded mb-2 uppercase tracking-wide">
+                    <span className="inline-block px-2 py-0.5 bg-rose-500 text-white text-[10px] font-bold rounded mb-1 uppercase tracking-wide">
                       {day.date}
                     </span>
                     <h2 className="text-2xl font-serif text-white leading-tight">{day.title}</h2>
-                    <p className="text-gray-200 text-sm mt-1 font-light opacity-90">{day.subtitle}</p>
+                    {day.id !== 'info-local' && (
+                      <p className="text-gray-200 text-sm mt-1 font-light opacity-90">{day.subtitle}</p>
+                    )}
                   </div>
                   <div className="bg-white/20 backdrop-blur-md p-2 rounded-full">
                     <ChevronLeft className="w-5 h-5 text-white rotate-180" />
@@ -155,13 +199,21 @@ const DayDetailPage = () => {
   return (
     <div className="min-h-screen bg-gray-50 pb-12">
       {/* Header Image */}
-      <div className="relative h-64 bg-gray-300">
-        <div className="absolute inset-0 bg-black/40 z-10" />
-        <img 
-          src={day.coverImage} 
-          alt={day.title} 
-          className="w-full h-full object-cover"
-        />
+      <div className={`relative h-64 ${!day.coverImage ? 'bg-rose-500' : 'bg-gray-300'}`}>
+        {day.coverImage ? (
+          <>
+            <div className="absolute inset-0 bg-black/40 z-10" />
+            <img 
+              src={day.coverImage} 
+              alt={day.title} 
+              className="w-full h-full object-cover"
+            />
+          </>
+        ) : (
+           <div className="absolute inset-0 bg-rose-500 flex items-center justify-center">
+             <Heart className="w-32 h-32 text-rose-400 opacity-50" />
+           </div>
+        )}
         
         {/* Navbar inside Header */}
         <div className="absolute top-0 left-0 w-full p-4 z-20 flex items-center">

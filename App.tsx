@@ -2,14 +2,11 @@ import React from 'react';
 import { HashRouter, Routes, Route, Link, useParams, useNavigate } from 'react-router-dom';
 import { 
   MapPin, 
-  Clock, 
   ChevronLeft, 
   Utensils, 
-  Coffee, 
   Camera, 
   Footprints, 
   Train, 
-  Plane, 
   Bed, 
   Landmark,
   Heart,
@@ -17,7 +14,7 @@ import {
   ExternalLink
 } from 'lucide-react';
 import { ITINERARY } from './data';
-import { Activity, DayPlan } from './types';
+import { Activity } from './types';
 
 // --- Components ---
 

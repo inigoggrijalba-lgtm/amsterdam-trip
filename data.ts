@@ -5,92 +5,62 @@ export const ITINERARY: DayPlan[] = [
     id: 'day-1',
     date: 'Viernes 13 FEB',
     title: 'Día 1',
-    subtitle: 'Primer Contacto & Museos',
-    theme: 'Llegada y Arte',
+    subtitle: 'Llegada y Calma',
+    theme: 'Ritmo Pausado',
     coverImage: 'https://images.unsplash.com/photo-1512470876302-972faa2aa9a4?q=80&w=1000&auto=format&fit=crop',
     activities: [
       {
         id: 'd1-arrival',
         time: '09:00',
         title: 'Llegada a Schiphol',
-        description: 'Aterrizaje y recogida de equipaje.',
+        description: 'Aterrizaje y recogida de equipaje sin prisas.',
         locationQuery: 'Schiphol Airport',
         type: 'transport'
       },
       {
-        id: 'd1-train',
-        time: '09:30',
-        title: 'Tren al Centro',
-        description: 'Tren directo a Amsterdam Centraal (15-18 min).',
-        locationQuery: 'Schiphol Airport Railway Station',
-        type: 'transport'
-      },
-      {
-        id: 'd1-lockers',
+        id: 'd1-uber',
         time: '10:00',
-        title: 'Dejar Mochilas',
-        description: 'Taquillas en la estación o ir directo al alojamiento si permiten drop-off.',
-        locationQuery: 'Amsterdam Centraal',
-        type: 'hotel'
-      },
-      {
-        id: 'd1-walking',
-        time: '10:30',
-        title: 'Walking Tour Centro',
-        description: 'Ruta suave: Damrak, Plaza Dam (Palacio Real), Begijnhof (oasis silencio) y Bloemenmarkt.',
-        locationQuery: 'Dam Square, Amsterdam',
-        type: 'walk'
-      },
-      {
-        id: 'd1-lunch',
-        time: '12:15',
-        title: 'Comida Ligera',
-        description: 'Parada para reponer fuerzas por el centro.',
-        locationQuery: 'The Pantry Amsterdam',
-        type: 'food',
-        recommendations: [
-          { name: 'The Pantry (Holandés casero)', query: 'The Pantry Amsterdam' },
-          { name: 'Gartine (Romántico/Local)', query: 'Gartine Amsterdam' },
-          { name: 'SLA (Rápido y sano)', query: 'SLA Amsterdam' }
-        ]
-      },
-      {
-        id: 'd1-vangogh',
-        time: '14:30',
-        title: 'Museo Van Gogh',
-        description: 'Visita de 2h. ¡Importante! Ver exposición "Yellow". Reserva necesaria.',
-        locationQuery: 'Van Gogh Museum',
-        type: 'culture',
+        title: 'UBER al Houseboat',
+        description: 'Traslado directo para dejar las maletas.\nDirección: Realengracht 9, 1013 KW Amsterdam.',
+        locationQuery: 'Realengracht 9, Amsterdam',
+        type: 'transport',
         important: true
       },
       {
-        id: 'd1-museumplein',
-        time: '17:00',
-        title: 'Paseo Museumplein',
-        description: 'Disfrutar del parque y tomar un chocolate caliente.',
-        locationQuery: 'Museumplein',
-        type: 'leisure'
+        id: 'd1-walking-soft',
+        time: '11:30',
+        title: 'Paseo por los Canales',
+        description: 'Caminata suave por el cinturón de canales (Grachtengordel). Explorar la zona cercana a la casa flotante.',
+        locationQuery: 'Prinsengracht Amsterdam',
+        type: 'walk'
       },
       {
-        id: 'd1-checkin',
-        time: '18:00',
-        title: 'Check-in Houseboat',
-        description: 'Tiempo para relajarse y disfrutar de nuestro barco.',
-        locationQuery: 'Amsterdam Houseboat', 
+        id: 'd1-lunch-long',
+        time: '13:30',
+        title: 'Almuerzo sin Prisas',
+        description: 'Disfrutar de una comida larga en un rincón acogedor.',
+        locationQuery: 'Gartine Amsterdam',
+        type: 'food',
+        recommendations: [
+          { name: 'Gartine (Huerto propio)', query: 'Gartine Amsterdam' },
+          { name: 'Buffet van Odette', query: 'Buffet van Odette' }
+        ]
+      },
+      {
+        id: 'd1-rest',
+        time: '16:00',
+        title: 'Tarde en la Houseboat',
+        description: 'Momento para disfrutar de nuestro barco. Abrir un vino y ver pasar la tarde sobre el canal.',
+        locationQuery: 'Realengracht 9, Amsterdam', 
         type: 'hotel'
       },
       {
-        id: 'd1-dinner',
+        id: 'd1-dinner-chill',
         time: '20:00',
-        title: 'Cena Romántica',
-        description: 'Cena íntima para cerrar el primer día.',
+        title: 'Cena de Bienvenida',
+        description: 'Cena relajada cerca de los canales centrales.',
         locationQuery: 'De Belhamel Amsterdam',
-        type: 'food',
-        recommendations: [
-          { name: 'De Belhamel (Canal view)', query: 'De Belhamel Amsterdam' },
-          { name: 'Restaurant Black (Moderno)', query: 'Restaurant Black Amsterdam' },
-          { name: 'Moeders (Tradicional)', query: 'Moeders Amsterdam' }
-        ]
+        type: 'food'
       }
     ]
   },
@@ -98,84 +68,88 @@ export const ITINERARY: DayPlan[] = [
     id: 'day-2',
     date: 'Sábado 14 FEB',
     title: 'Día 2',
-    subtitle: 'San Valentín ❤️',
-    theme: 'Amor, Canales y Mercados',
+    subtitle: 'San Valentín sobre Ruedas',
+    theme: 'Bicis y Arte Moderno',
     coverImage: 'https://images.unsplash.com/photo-1583295125721-766a0088cd3f?q=80&w=1000&auto=format&fit=crop',
     activities: [
       {
-        id: 'd2-breakfast',
-        time: '09:30',
-        title: 'Desayuno en De Pijp',
-        description: 'Empezar el día con energía en el barrio latino.',
-        locationQuery: 'De Pijp Amsterdam',
-        type: 'food',
-        recommendations: [
-          { name: 'CT Coffee & Coconuts', query: 'CT Coffee & Coconuts Amsterdam' },
-          { name: 'Little Collins', query: 'Little Collins De Pijp' }
-        ]
+        id: 'd2-bike-pickup',
+        time: '09:00',
+        title: 'Alquiler de Bicicletas',
+        description: 'Recogida de nuestras bicis para todo el día. ¡La mejor forma de ver la ciudad!',
+        locationQuery: 'Black Bikes Amsterdam',
+        type: 'leisure',
+        important: true
       },
       {
-        id: 'd2-park',
-        time: '10:30',
-        title: 'Paseo Vondelpark',
-        description: 'Perfecto para fotos románticas de mañana.',
+        id: 'd2-breakfast',
+        time: '09:45',
+        title: 'Desayuno en De Pijp',
+        description: 'Pedalear hasta el barrio latino para un desayuno energético.',
+        locationQuery: 'CT Coffee & Coconuts',
+        type: 'food'
+      },
+      {
+        id: 'd2-moco',
+        time: '11:30',
+        title: 'MOCO Museum',
+        description: 'Visita al museo de arte contemporáneo (Banksy, Kusama). Recorrido por la Villa Alsberg.',
+        locationQuery: 'Moco Museum Amsterdam',
+        type: 'culture',
+        important: true
+      },
+      {
+        id: 'd2-ride-vondel',
+        time: '13:00',
+        title: 'Ruta por Vondelpark',
+        description: 'Recorrido en bici por el pulmón verde de Ámsterdam. Parada para fotos en el estanque.',
         locationQuery: 'Vondelpark',
         type: 'walk'
       },
       {
-        id: 'd2-cruise',
-        time: '12:00',
-        title: 'Crucero Romántico',
-        description: 'Navegación por los canales (75-90 min).',
-        locationQuery: 'Pure Boats Amsterdam',
-        type: 'leisure',
-        important: true,
-        recommendations: [
-          { name: 'Pure Boats (Recomendado)', query: 'Pure Boats Amsterdam' },
-          { name: 'Amsterdam Boat Trips', query: 'Amsterdam Boat Trips' }
-        ]
-      },
-      {
         id: 'd2-foodhallen',
-        time: '13:45',
-        title: 'Comida en Foodhallen',
-        description: 'Picar algo variado: burgers, asiático, gin tonics...',
+        time: '14:15',
+        title: 'Comida de San Valentín',
+        description: 'Opciones variadas en un ambiente animado.',
         locationQuery: 'Foodhallen Amsterdam',
-        type: 'food'
-      },
-      {
-        id: 'd2-museum',
-        time: '15:30',
-        title: 'Tarde de Arte',
-        description: 'Opción Clásica (Stedelijk) o Alternativa (Ferry a NDSM + STRAAT Museum).',
-        locationQuery: 'Stedelijk Museum Amsterdam',
-        type: 'culture',
+        type: 'food',
         recommendations: [
-          { name: 'Stedelijk Museum', query: 'Stedelijk Museum Amsterdam' },
-          { name: 'STRAAT Museum (NDSM)', query: 'STRAAT Museum Amsterdam' }
+          { name: 'Foodhallen (Mercado variado)', query: 'Foodhallen Amsterdam' },
+          { name: 'The Seafood Bar (Marisco fresco)', query: 'The Seafood Bar Spui' },
+          { name: 'Pluk (Instagrammable & Sano)', query: 'Pluk Amsterdam' },
+          { name: 'Moeders (Casero holandés)', query: 'Moeders Amsterdam' }
         ]
       },
       {
-        id: 'd2-dinner',
-        time: '20:00',
-        title: 'Cena San Valentín',
-        description: 'La gran cena especial.',
+        id: 'd2-canal-ride',
+        time: '16:30',
+        title: 'Circuito de los Canales',
+        description: 'Ruta en bici por Prinsengracht, Keizersgracht y Herengracht. Ver las casas "danzantes" y los puentes icónicos.',
+        locationQuery: 'Leidseplein',
+        type: 'walk'
+      },
+      {
+        id: 'd2-dinner-special',
+        time: '20:30',
+        title: 'Gran Cena de Aniversario',
+        description: 'Celebración especial en uno de los mejores locales de la ciudad.',
         locationQuery: 'The Duchess Amsterdam',
         type: 'food',
         important: true,
         recommendations: [
-          { name: 'The Duchess (Elegante)', query: 'The Duchess Amsterdam' },
-          { name: 'Ciel Bleu (Michelin)', query: 'Ciel Bleu Restaurant Amsterdam' },
-          { name: 'The Seafood Bar (Marisco)', query: 'The Seafood Bar Amsterdam' }
+          { name: 'The Duchess (Sofisticado)', query: 'The Duchess Amsterdam' },
+          { name: 'Pesca (El teatro del pescado)', query: 'Pesca Amsterdam' },
+          { name: 'Restaurant Bussia (Italiano top)', query: 'Bussia Amsterdam' },
+          { name: 'Restaurant C (Experiencia 360)', query: 'Restaurant C Amsterdam' }
         ]
       },
       {
-        id: 'd2-walk',
-        time: '22:00',
-        title: 'Paseo Nocturno',
-        description: 'Caminar viendo los canales iluminados.',
-        locationQuery: 'Keizersgracht',
-        type: 'walk'
+        id: 'd2-bike-return',
+        time: '22:30',
+        title: 'Devolución de Bicis',
+        description: 'Entrega de las bicicletas antes de volver a la Houseboat.',
+        locationQuery: 'Black Bikes Amsterdam',
+        type: 'leisure'
       }
     ]
   },
@@ -183,67 +157,69 @@ export const ITINERARY: DayPlan[] = [
     id: 'day-3',
     date: 'Domingo 15 FEB',
     title: 'Día 3',
-    subtitle: 'Historia & Jordaan',
-    theme: 'Barrios con encanto',
+    subtitle: 'Jordaan y NDSM Art',
+    theme: 'Barrios y Street Art',
     coverImage: 'https://images.unsplash.com/photo-1569336415962-a4bd9f69cd83?q=80&w=1000&auto=format&fit=crop',
     activities: [
       {
-        id: 'd3-jordaan',
-        time: '09:00',
-        title: 'Ruta por Jordaan',
-        description: 'Descubrir casitas estrechas, cafés y tiendas vintage.',
+        id: 'd3-jordaan-deep',
+        time: '09:30',
+        title: 'Secretos de Jordaan',
+        description: 'Exploración a fondo: entrar en algún "hofje" (patio escondido) como el Karthuizerhof.',
         locationQuery: 'Jordaan Amsterdam',
         type: 'walk'
       },
       {
-        id: 'd3-anne',
-        time: '10:00',
-        title: 'Casa de Ana Frank',
-        description: 'Visita histórica obligatoria (1h-1h15). Entradas reservadas.',
-        locationQuery: 'Anne Frank House',
+        id: 'd3-brunch-winkel',
+        time: '11:30',
+        title: 'El Brunch Perfecto',
+        description: 'Tarta de manzana famosa y café frente a la Noorderkerk.',
+        locationQuery: 'Winkel 43',
+        type: 'food',
+        recommendations: [
+          { name: 'Winkel 43 (Tarta mítica)', query: 'Winkel 43 Amsterdam' },
+          { name: 'Bakers & Roasters (Brunch Kiwi)', query: 'Bakers & Roasters Amsterdam' },
+          { name: 'Greenwoods (Clásico Inglés)', query: 'Greenwoods Keizersgracht' },
+          { name: 'Dignita Hoftuin (Oasis verde)', query: 'Dignita Hoftuin' }
+        ]
+      },
+      {
+        id: 'd3-ferry',
+        time: '13:30',
+        title: 'Ferry NDSM-werf',
+        description: 'Embarque en la línea F4 detrás de la Estación Central. Travesía de 15 min por el río IJ.',
+        locationQuery: 'Amsterdam Centraal Ferry Terminal',
+        type: 'transport'
+      },
+      {
+        id: 'd3-straat',
+        time: '14:00',
+        title: 'STRAAT Museum',
+        description: 'Dirección: NDSM-Plein 1. El mayor museo de arte urbano en un antiguo hangar naval de 8.000m2.',
+        locationQuery: 'STRAAT Museum Amsterdam',
         type: 'culture',
         important: true
       },
       {
-        id: 'd3-brunch',
-        time: '12:00',
-        title: 'Brunch Local',
-        description: 'Parada obligatoria para probar la tarta de manzana.',
-        locationQuery: 'Winkel 43',
-        type: 'food',
-        recommendations: [
-          { name: 'Winkel 43 (Tarta manzana)', query: 'Winkel 43 Amsterdam' },
-          { name: 'Dignita Westerpark', query: 'Dignita Westerpark' },
-          { name: 'Kessens', query: 'Kessens Amsterdam' }
-        ]
-      },
-      {
-        id: 'd3-adam',
-        time: '13:30',
-        title: 'A\'DAM Tower',
-        description: 'Ferry gratis y subida al mirador panorámico.',
-        locationQuery: 'A\'DAM Lookout',
-        type: 'leisure'
-      },
-      {
-        id: 'd3-afternoon',
-        time: '15:30',
-        title: 'Paseo Ribera o Extra',
-        description: 'Paseo por el IJ, Waterlooplein Market o Heineken Experience.',
-        locationQuery: 'Waterlooplein Market',
+        id: 'd3-ndsm-walk',
+        time: '16:30',
+        title: 'Exploración NDSM',
+        description: 'Paseo por el muelle industrial, ver el submarino abandonado y los contenedores de artistas.',
+        locationQuery: 'NDSM Wharf',
         type: 'walk'
       },
       {
-        id: 'd3-dinner',
-        time: '19:30',
-        title: 'Cena Relajada',
-        description: 'Algo rico y tranquilo para acabar el finde.',
+        id: 'd3-dinner-pazzi',
+        time: '19:45',
+        title: 'Última Cena en la Ciudad',
+        description: 'Regreso al centro para una cena con encanto local.',
         locationQuery: 'Pazzi Amsterdam',
         type: 'food',
         recommendations: [
-          { name: 'Pazzi (Pizza)', query: 'Pazzi Amsterdam' },
-          { name: 'Bistro Berlage', query: 'Bistro Berlage' },
-          { name: 'Café Bern (Fondue)', query: 'Cafe Bern Amsterdam' }
+          { name: 'Pazzi (Pizza artesanal)', query: 'Pazzi Amsterdam' },
+          { name: 'Toscanini (Italiano auténtico)', query: 'Toscanini Amsterdam' },
+          { name: 'Cannibale Royale (Brasas)', query: 'Cannibale Royale Ruysdaelkade' },
+          { name: 'Hap-Hmm (Tradicional barato)', query: 'Hap-Hmm Amsterdam' }
         ]
       }
     ]
@@ -252,75 +228,32 @@ export const ITINERARY: DayPlan[] = [
     id: 'day-4',
     date: 'Lunes 16 FEB',
     title: 'Día 4',
-    subtitle: 'Despedida Relax',
-    theme: 'Últimos momentos',
+    subtitle: 'Despedida Amstel',
+    theme: 'Últimos Momentos',
     coverImage: 'https://images.unsplash.com/photo-1534351590666-13e3e96b5017?q=80&w=1000&auto=format&fit=crop',
     activities: [
       {
-        id: 'd4-walk',
+        id: 'd4-amstel',
         time: '09:30',
-        title: 'Paseo por el Amstel',
-        description: 'Cruzar el Magere Brug (Puente Delgado).',
+        title: 'Río Amstel',
+        description: 'Paseo por el puente Magere Brug y las esclusas.',
         locationQuery: 'Magere Brug',
         type: 'walk'
       },
       {
-        id: 'd4-brunch',
-        time: '10:45',
-        title: 'Último Café/Brunch',
-        description: 'Disfrutar de las vistas del canal.',
-        locationQuery: 'Bakhuys Amsterdam',
-        type: 'food',
-        recommendations: [
-          { name: 'Bakhuys', query: 'Bakhuys Amsterdam' },
-          { name: 'Coffee Company', query: 'Coffee Company Amsterdam' },
-          { name: 'Marie Amsterdam', query: 'Marie Amsterdam' }
-        ]
-      },
-      {
-        id: 'd4-checkout',
+        id: 'd4-brunch-final',
         time: '11:00',
-        title: 'Check-out',
-        description: 'Salida del alojamiento con equipaje.',
-        locationQuery: '',
-        type: 'hotel'
+        title: 'Último Café',
+        description: 'Despedirse de los canales con un buen café y bollos artesanos.',
+        locationQuery: 'Bakhuys Amsterdam',
+        type: 'food'
       },
       {
-        id: 'd4-shop',
-        time: '12:00',
-        title: 'Compras & Relax',
-        description: 'Spiegelkwartier (arte) o 9 Straatjes (boutiques).',
-        locationQuery: 'The 9 Streets',
-        type: 'leisure'
-      },
-      {
-        id: 'd4-lunch',
-        time: '14:00',
-        title: 'Comida de Despedida',
-        description: 'Último bocado antes de irnos.',
-        locationQuery: 'Oriental City Amsterdam',
-        type: 'food',
-        recommendations: [
-          { name: 'Foodware', query: 'Foodware Amsterdam' },
-          { name: 'Broodje Bert', query: 'Broodje Bert Amsterdam' },
-          { name: 'Oriental City', query: 'Oriental City Amsterdam' }
-        ]
-      },
-      {
-        id: 'd4-train',
+        id: 'd4-train-airport',
         time: '17:30',
-        title: 'Tren al Aeropuerto',
-        description: 'Salida desde Amsterdam Centraal.',
+        title: 'Hacia Schiphol',
+        description: 'Regreso al aeropuerto. ¡Fin de un viaje inolvidable!',
         locationQuery: 'Amsterdam Centraal',
-        type: 'transport',
-        important: true
-      },
-      {
-        id: 'd4-fly',
-        time: '20:40',
-        title: 'Vuelo de Vuelta',
-        description: 'Fin del viaje maravilloso. ❤️',
-        locationQuery: 'Schiphol Airport',
         type: 'transport'
       }
     ]
@@ -341,16 +274,16 @@ export const ITINERARY: DayPlan[] = [
         locationQuery: 'Museumplein',
         type: 'culture',
         items: [
-          { title: 'Rijksmuseum', description: 'La joya de la corona. Dedica varias horas para ver "La Ronda de Noche" de Rembrandt y la obra de Vermeer.', query: 'Rijksmuseum' },
-          { title: 'Museo Van Gogh', description: 'Imprescindible. Alberga la colección más grande del mundo del pintor post-impresionista. ¡Reserva con semanas de antelación!', query: 'Van Gogh Museum' },
-          { title: 'Casa de Ana Frank', description: 'Una experiencia conmovedora y vital. La demanda es altísima; las entradas se liberan online y se agotan en minutos.', query: 'Anne Frank House' },
+          { title: 'STRAAT Museum', description: 'NDSM-Plein 1. El museo de arte callejero más grande del mundo en un hangar industrial.', query: 'STRAAT Museum' },
+          { title: 'MOCO Museum', description: 'Famoso por sus exposiciones de Banksy y arte moderno en un edificio histórico.', query: 'Moco Museum' },
+          { title: 'Rijksmuseum', description: 'La joya de la corona. Dedica varias horas para ver "La Ronda de Noche" de Rembrandt.', query: 'Rijksmuseum' },
+          { title: 'Museo Van Gogh', description: 'Alberga la colección más grande del mundo del pintor post-impresionista.', query: 'Van Gogh Museum' },
+          { title: 'Casa de Ana Frank', description: 'Una experiencia conmovedora. Requiere reserva con muchísima antelación.', query: 'Anne Frank House' },
           { title: 'Stedelijk Museum', description: 'Dedicado al arte moderno y contemporáneo y al diseño.', query: 'Stedelijk Museum' },
-          { title: 'Casa de Rembrandt', description: 'Visita la casa-taller original del maestro y mira cómo vivía y trabajaba.', query: 'Rembrandt House Museum' },
-          { title: 'Hermitage', description: 'Ubicado en un bello edificio junto al río Amstel, suele albergar exposiciones de talla mundial.', query: 'Hermitage Amsterdam' },
-          { title: 'Museo de los Canales', description: 'Aprende la fascinante historia de cómo se diseñó y construyó la famosa red de canales.', query: 'Museum of the Canals' },
-          { title: 'NEMO Science Museum', description: 'Un espectacular museo de ciencia interactivo, ideal si viajas con niños o si te interesa la arquitectura (tiene una terraza con vistas geniales).', query: 'NEMO Science Museum' },
-          { title: 'Museo Marítimo Nacional', description: 'Un hermoso edificio que alberga una rica colección de historia naval holandesa.', query: 'The National Maritime Museum' },
-          { title: 'Museo Moco', description: 'Famoso por sus exposiciones de arte contemporáneo, a menudo con obras de Banksy y otros artistas modernos.', query: 'Moco Museum' },
+          { title: 'Casa de Rembrandt', description: 'Visita la casa-taller original del maestro.', query: 'Rembrandt House Museum' },
+          { title: 'Hermitage Amsterdam', description: 'Exposiciones de talla mundial junto al río Amstel.', query: 'Hermitage Amsterdam' },
+          { title: 'Museo de los Canales', description: 'Aprende cómo se construyó la famosa red de canales.', query: 'Museum of the Canals' },
+          { title: 'NEMO Science Museum', description: 'Museo interactivo con una terraza con vistas geniales.', query: 'NEMO Science Museum' }
         ]
       },
       {
@@ -361,17 +294,17 @@ export const ITINERARY: DayPlan[] = [
         locationQuery: 'Amsterdam',
         type: 'leisure',
         items: [
-          { title: 'Alquilar una Bici', description: 'La forma más auténtica de moverse. Alquila una en tiendas como MacBike o Black Bikes y explora los barrios como un local.', query: 'Bike Rental Amsterdam' },
-          { title: 'Barco por los Canales', description: 'Opta por un crucero turístico o alquila un bote pequeño eléctrico para pilotar tú mismo.', query: 'Canal Cruise Amsterdam' },
-          { title: 'Vondelpark', description: 'Pasa una tarde relajada paseando, haciendo un pícnic o viendo algún espectáculo callejero en el parque más famoso de la ciudad.', query: 'Vondelpark' },
-          { title: 'Jordaan', description: 'Piérdete por sus callejones estrechos, patios interiores secretos (hofjes) y canales pintorescos. Es la zona más encantadora para pasear.', query: 'Jordaan' },
-          { title: 'Plaza Dam', description: 'Visita el centro histórico donde se encuentra el Palacio Real y la Nieuwe Kerk (Iglesia Nueva).', query: 'Dam Square' },
-          { title: 'A\'DAM Lookout', description: 'Cruza el ferry gratuito detrás de la Estación Central y sube a este mirador para obtener vistas panorámicas. Si te atreves, colúmpiate sobre el borde de Ámsterdam.', query: 'A\'DAM Lookout' },
-          { title: 'Bloemenmarkt', description: 'Pasea por el único mercado de flores flotante del mundo, ideal para comprar tulipanes y semillas.', query: 'Bloemenmarkt' },
-          { title: 'Heineken Experience', description: 'Un recorrido interactivo y divertido por la antigua fábrica de cerveza Heineken.', query: 'Heineken Experience' },
-          { title: 'Los Nueve Calles', description: 'Una serie de nueve calles llenas de boutiques de diseño, tiendas vintage y cafés únicos.', query: 'The 9 Streets' },
-          { title: 'Westerkerk', description: 'Sube a su torre para obtener una de las mejores vistas del barrio de Jordaan y la Casa de Ana Frank.', query: 'Westerkerk' },
-          { title: 'Mercado Albert Cuyp', description: 'El mercado al aire libre más grande de Ámsterdam, perfecto para sentir el ambiente local y probar comida callejera.', query: 'Albert Cuyp Market' },
+          { title: 'Alquilar una Bici', description: 'La forma más auténtica de moverse. Alquila en MacBike o Black Bikes.', query: 'Bike Rental Amsterdam' },
+          { title: 'Paseo en Barco', description: 'Crucero turístico o alquila un bote pequeño eléctrico.', query: 'Canal Cruise Amsterdam' },
+          { title: 'Vondelpark', description: 'El parque más famoso, ideal para un pícnic o paseo.', query: 'Vondelpark' },
+          { title: 'Jordaan', description: 'Barrio encantador con callejones estrechos y patios secretos (hofjes).', query: 'Jordaan' },
+          { title: 'Plaza Dam', description: 'Centro histórico con el Palacio Real.', query: 'Dam Square' },
+          { title: 'A\'DAM Lookout', description: 'Mirador panorámico y columpio sobre el borde.', query: 'A\'DAM Lookout' },
+          { title: 'Bloemenmarkt', description: 'Único mercado de flores flotante del mundo.', query: 'Bloemenmarkt' },
+          { title: 'Heineken Experience', description: 'Recorrido interactivo por la antigua fábrica.', query: 'Heineken Experience' },
+          { title: 'Los Nueve Calles', description: 'Boutiques de diseño, tiendas vintage y cafés únicos.', query: 'The 9 Streets' },
+          { title: 'Westerkerk', description: 'Sube a su torre para las mejores vistas de Jordaan.', query: 'Westerkerk' },
+          { title: 'Mercado Albert Cuyp', description: 'Mercado al aire libre perfecto para sentir el ambiente local.', query: 'Albert Cuyp Market' }
         ]
       },
       {
@@ -382,12 +315,12 @@ export const ITINERARY: DayPlan[] = [
         locationQuery: 'Amsterdam',
         type: 'food',
         items: [
-          { title: 'Stroopwafel', description: 'Prueba uno recién hecho y caliente en cualquiera de los puestos callejeros (el de Albert Cuypmarkt es famoso).', query: 'Stroopwafel Albert Cuyp Market' },
-          { title: 'Patat/Frites', description: 'Patatas fritas holandesas servidas en un cucurucho con alguna de las salsas típicas (la más famosa es la mayonesa).', query: 'Manneken Pis Fries' },
-          { title: 'Haring (Arenque)', description: 'Pescado crudo servido con cebolla y pepinillos. Pruébalo en un puesto callejero (haringhandel).', query: 'Haringhandel Amsterdam' },
-          { title: 'Kroket y Bitterballen', description: 'Bolas o croquetas fritas rellenas de ragú de carne, perfectas para picar con una cerveza.', query: 'Cafe Luxembourg' },
-          { title: 'Quesos', description: 'Visita una tienda especializada o un mercado para degustar y comprar quesos Gouda, Edam y Maasdam.', query: 'Cheese Shop Amsterdam' },
-          { title: 'Poffertjes', description: 'Pequeñas tortitas dulces servidas con mantequilla y azúcar glass.', query: 'Poffertjes Albert Cuyp' },
+          { title: 'Stroopwafel', description: 'Prueba uno recién hecho y caliente en el Albert Cuypmarkt.', query: 'Stroopwafel Albert Cuyp Market' },
+          { title: 'Patat/Frites', description: 'Patatas fritas servidas con mayonesa u otras salsas.', query: 'Manneken Pis Fries' },
+          { title: 'Haring (Arenque)', description: 'Pescado crudo servido con cebolla y pepinillos en puestos callejeros.', query: 'Haringhandel Amsterdam' },
+          { title: 'Kroket y Bitterballen', description: 'Bolitas fritas de ragú, ideales con una cerveza.', query: 'Cafe Luxembourg' },
+          { title: 'Quesos Holandeses', query: 'Cheese Shop Amsterdam', description: 'Degusta quesos Gouda, Edam y Maasdam.' },
+          { title: 'Poffertjes', description: 'Mini tortitas dulces con mantequilla y azúcar glass.', query: 'Poffertjes Albert Cuyp' }
         ]
       },
       {
@@ -398,10 +331,10 @@ export const ITINERARY: DayPlan[] = [
         locationQuery: 'Amsterdam',
         type: 'food',
         items: [
-          { title: 'Brown Cafés', description: 'Café Chris (Jordaan): Uno de los Brown Cafés más antiguos, con un ambiente rústico y local.', query: 'Cafe Chris' },
-          { title: 'Café Hoppe', description: 'Histórico y elegante, un gran lugar para tomar una cerveza o un café en Spui.', query: 'Cafe Hoppe' },
-          { title: 'De Drie Fleschjes', description: 'La taberna de degustación más antigua de Ámsterdam, ideal para probar licores holandeses.', query: 'De Drie Fleschjes' },
-          { title: 'Modernos', description: 'Coffee Company o Bagels & Beans: Cadenas populares para desayunar o tomar un buen café con un ambiente moderno.', query: 'Coffee Company Amsterdam' },
+          { title: 'Café Chris (Jordaan)', description: 'Uno de los Brown Cafés más antiguos y auténticos.', query: 'Cafe Chris' },
+          { title: 'Café Hoppe', description: 'Histórico y elegante en la zona de Spui.', query: 'Cafe Hoppe' },
+          { title: 'De Drie Fleschjes', description: 'Taberna de licores más antigua de la ciudad.', query: 'De Drie Fleschjes' },
+          { title: 'Modernos', description: 'Coffee Company o Bagels & Beans para un buen desayuno.', query: 'Coffee Company Amsterdam' }
         ]
       },
       {
@@ -412,9 +345,9 @@ export const ITINERARY: DayPlan[] = [
         locationQuery: 'Amsterdam',
         type: 'food',
         items: [
-          { title: 'Indonesa (Rijsttafel)', description: 'La cocina indonesia es popular debido a la historia colonial. Prueba el Rijsttafel (mesa de arroz), un festín de muchos platos pequeños, en restaurantes como Tempo Doeloe o Sama Sebo.', query: 'Restaurant Tempo Doeloe' },
-          { title: 'Alta Gama', description: 'Reserva en el barrio de Jordaan o Oud-Zuid en restaurantes como Vinkeles o De Kas (este último en un invernadero).', query: 'Restaurant De Kas' },
-          { title: 'Foodhallen', description: 'Un mercado interior con una gran variedad de puestos de comida internacional de alta calidad (desde tapas hasta vietnamita).', query: 'Foodhallen' },
+          { title: 'Indonesa (Rijsttafel)', description: 'El festín de platos pequeños "Mesa de Arroz". Prueba en Tempo Doeloe.', query: 'Restaurant Tempo Doeloe' },
+          { title: 'Alta Gama', description: 'Restaurantes como Vinkeles o De Kas (en un invernadero).', query: 'Restaurant De Kas' },
+          { title: 'Foodhallen', description: 'Mercado interior con gran variedad internacional.', query: 'Foodhallen' }
         ]
       },
       {
@@ -425,9 +358,9 @@ export const ITINERARY: DayPlan[] = [
         locationQuery: 'Amsterdam Central',
         type: 'transport',
         items: [
-          { title: 'Zaanse Schans', description: 'Un pueblo de postal a poca distancia en tren, famoso por sus molinos de viento históricos, casas de madera y talleres de zuecos y quesos.', query: 'Zaanse Schans' },
-          { title: 'Volendam y Marken', description: 'Dos encantadores pueblos pesqueros en el IJsselmeer, conocidos por sus trajes tradicionales y sus puertos pintorescos.', query: 'Volendam' },
-          { title: 'Haarlem', description: 'Una ciudad más pequeña y tranquila, con una impresionante plaza principal, perfectas iglesias y un ambiente de compras excelente.', query: 'Haarlem' },
+          { title: 'Zaanse Schans', description: 'Pueblo de postal con molinos y talleres de zuecos.', query: 'Zaanse Schans' },
+          { title: 'Volendam y Marken', description: 'Encantadores pueblos pesqueros tradicionales.', query: 'Volendam' },
+          { title: 'Haarlem', description: 'Ciudad tranquila con impresionante plaza principal.', query: 'Haarlem' }
         ]
       }
     ]
